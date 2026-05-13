@@ -2,6 +2,11 @@
 
 A lightweight Arduino-based embedded system designed to monitor and display environmental data. This project integrates multiple analog sensors with an I2C LCD interface to provide real-time feedback on temperature, light levels, and manual potentiometer input.
 
+## Preview
+![preview1](./assets/images/node-red.png)
+![preview2](./assets/images/ui.png)
+![preview3](./assets/images/code-preview.png)
+
 ## Features
 * **Real-time Data Visualization:** Displays Temperature (Celsius), Light Intensity (%), and Potentiometer position (%) on a 16x2 LCD.
 * **Serialized Data Stream:** Outputs formatted sensor readings to the Serial Monitor at 9600 baud, ideal for data logging or external processing.
