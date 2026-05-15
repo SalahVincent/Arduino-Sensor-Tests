@@ -1,17 +1,20 @@
 # Arduino-Sensor-Tests
 
-A lightweight Arduino-based embedded system designed to monitor and display environmental data. This project integrates multiple analog sensors with an I2C LCD interface to provide real-time feedback on temperature, light levels, and manual potentiometer input.
+A lightweight, non-blocking Arduino-based embedded system designed to monitor environmental data, handle manual user inputs, and process external serial commands in real-time. 
+
+This version replaces standard delays with an efficient, timer-based execution loop to ensure high responsiveness.
 
 ## Preview
 ![preview1](./assets/images/node-red.png)
 ![preview2](./assets/images/ui.png)
 ![preview3](./assets/images/code-preview.png)
 
+
 ## Features
-* **Real-time Data Visualization:** Displays Temperature (Celsius), Light Intensity (%), and Potentiometer position (%) on a 16x2 LCD.
-* **Serialized Data Stream:** Outputs formatted sensor readings to the Serial Monitor at 9600 baud, ideal for data logging or external processing.
-* **I2C Integration:** Uses the `hd44780` library for efficient communication with an I2C-expanded LCD (MCP23008).
-* **Custom Scaling:** Includes calibrated formulas to convert raw analog signals into meaningful units.
+* **Non-Blocking Timing Engine:** Uses `millis()` for sensor sampling and LCD refreshes, eliminating processor lag and allowing continuous operation.
+* **Real-time Serial Command Processing:** Listens continuously for external serial inputs to instantly control hardware peripherals (e.g., toggling the status LED).
+* **Memory-Optimized Data Streaming:** Transmits sensor readings over Serial without the overhead of heavy `String` objects, preventing memory fragmentation.
+* **Flicker-Free LCD Interface:** Overwrites explicit cursor positions on a 16x2 I2C LCD to maintain a clean display without screen flickering.
 
 ## Hardware Requirements
 * **Microcontroller:** Arduino (Uno, Nano, or compatible)
@@ -22,7 +25,7 @@ A lightweight Arduino-based embedded system designed to monitor and display envi
     * **Potentiometer:** Connected to A1
     * **Buzzer:** Connected to Digital Pin 2
     * **Push Button:** Connected to Digital Pin 8
-    * **LED:** Onboard or external Pin 13
+    * **LED:** Connected to Digital Pin 13
 
 ## Prerequisites
 You will need the following libraries installed in your Arduino IDE:
@@ -37,13 +40,15 @@ You will need the following libraries installed in your Arduino IDE:
 ```markdown
 # Arduino-Sensor-Tests
 
-A lightweight Arduino-based embedded system designed to monitor and display environmental data. This project integrates multiple analog sensors with an I2C LCD interface to provide real-time feedback on temperature, light levels, and manual potentiometer input.
+A lightweight, non-blocking Arduino-based embedded system designed to monitor environmental data, handle manual user inputs, and process external serial commands in real-time. 
+
+This version replaces standard delays with an efficient, timer-based execution loop to ensure high responsiveness.
 
 ## Features
-* **Real-time Data Visualization:** Displays Temperature (Celsius), Light Intensity (%), and Potentiometer position (%) on a 16x2 LCD.
-* **Serialized Data Stream:** Outputs formatted sensor readings to the Serial Monitor at 9600 baud, ideal for data logging or external processing.
-* **I2C Integration:** Uses the `hd44780` library for efficient communication with an I2C-expanded LCD (MCP23008).
-* **Custom Scaling:** Includes calibrated formulas to convert raw analog signals into meaningful units.
+* **Non-Blocking Timing Engine:** Uses `millis()` for sensor sampling and LCD refreshes, eliminating processor lag and allowing continuous operation.
+* **Real-time Serial Command Processing:** Listens continuously for external serial inputs to instantly control hardware peripherals (e.g., toggling the status LED).
+* **Memory-Optimized Data Streaming:** Transmits sensor readings over Serial without the overhead of heavy `String` objects, preventing memory fragmentation.
+* **Flicker-Free LCD Interface:** Overwrites explicit cursor positions on a 16x2 I2C LCD to maintain a clean display without screen flickering.
 
 ## Hardware Requirements
 * **Microcontroller:** Arduino (Uno, Nano, or compatible)
@@ -54,7 +59,7 @@ A lightweight Arduino-based embedded system designed to monitor and display envi
     * **Potentiometer:** Connected to A1
     * **Buzzer:** Connected to Digital Pin 2
     * **Push Button:** Connected to Digital Pin 8
-    * **LED:** Onboard or external Pin 13
+    * **LED:** Connected to Digital Pin 13
 
 ## Prerequisites
 You will need the following libraries installed in your Arduino IDE:
